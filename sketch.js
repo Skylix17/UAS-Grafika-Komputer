@@ -3,14 +3,16 @@ let rectX = 300;
 let rectW = 140;
 let rectH = 140;
 
-let mass = 1000;        // massa batu (kg) - nanti bisa diubah dengan slider
-let force = 0;        // gaya yang diberikan saat menekan tombol
+let mass = 0 ; 
+let force = 0; 
 let velocity = 0;
 let acceleration = 0;
-let friction = 0.90;  // sederhana agar perlahan berhenti
+let friction = 0;  
 
-let massSlider, forceSlider, frictionSlider;
-let maxForce = 80;
+let massSlider; // massa batu (kg) - nanti bisa diubah dengan slider
+let forceSlider; // gaya yang diberikan saat menekan tombol
+let frictionSlider; // sederhana agar perlahan berhenti
+let maxForce;
 
 let pushing = false;
 
@@ -19,13 +21,13 @@ function setup() {
   rectMode(CORNER);
   textSize(14);
 
-  massSlider = createSlider(5, 1000, 50);    // atur massa 5..200
+  massSlider = createSlider(5, 1000, 500);    // atur massa 5..200
   massSlider.position(25, 205);
 
   forceSlider = createSlider(0, 300, 80);   // atur kekuatan dorong 0..300
   forceSlider.position(25, 235);
 
-  frictionSlider = createSlider(0.90, 0.999, 0.98, 0.001);
+  frictionSlider = createSlider(0.90, 0.999, 0,90, 0.001);
   frictionSlider.position(300, 235);
 }
 
@@ -82,7 +84,7 @@ function draw() {
   // Info
   fill(0);
   text("m / Massa batu: " + mass + "kg", 10, 20);
-  text("F/ Kekuatan dorong/Gaya/Force(max): " + maxForce + "N", 10, 50);
+  text("F/ Kekuatan dorong/Gaya/Force: " + maxForce + "N", 10, 50);
   text("Friction/ Medan Gesekan: " + nf(friction,1,3), 300, 50);
   text("a / Akselerasi / Percepatan =" + nf(acceleration,1,3) + "m/s²", 10, 80);
   text("v / Kecepatan gerak benda =" + nf(velocity,1,3)+ "m/s" , 10, 95);
