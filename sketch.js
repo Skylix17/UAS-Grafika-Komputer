@@ -6,12 +6,12 @@ let mass = 1000;        // massa batu (kg) - nanti bisa diubah dengan slider
 let force = 0;        // gaya yang diberikan saat menekan tombol
 let velocity = 0;
 let acceleration = 0;
-let friction = 0.98;  // sederhana agar perlahan berhenti
+let friction = 0.90;  // sederhana agar perlahan berhenti
 
 let pushing = false;
 
 function setup() {
-  createCanvas(800, 360);
+  createCanvas(1500, 360);
   rectMode(CORNER);
   textSize(14);
 }
@@ -54,6 +54,13 @@ function draw() {
   // lingkaran sederhana
   fill(100);
   circle(circleX, height - 140, circleW, circleH);
+
+  // batas kanan
+  // cek batas canvas
+  if (circleX + circleW/2 > width) {
+    circleX = width - circleW/2;
+    velocity = 0;
+}
 
   // Info
   fill(0);
