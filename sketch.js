@@ -15,6 +15,11 @@ let frictionSlider; // sederhana agar perlahan berhenti
 let maxForce;
 
 let pushing = false;
+let charImg;
+
+function preload() {
+  charImg = loadImage("push.png");
+}
 
 function setup() {
   createCanvas(1500, 360);
@@ -81,11 +86,11 @@ function draw() {
     translate(charX, height - 140);
     rotate(-0.05);
     fill(128,0,128);
-    rect(0, 0, 40, 80);
+    image(0, 0, 40, 80);
     pop();
   } else {
     fill(0, 120, 200);
-    rect(charX, height - 140, 40, 80);
+    image(charX, height - 140, 40, 80);
   }
 
   // box sederhana
@@ -96,7 +101,7 @@ function draw() {
   fill(0);
   text("m / Massa batu: " + mass + "kg", 10, 20);
   text("F/ Kekuatan dorong / Gaya / Force: " + maxForce + "N", 10, 50);
-  text("Friction / Medan Gesekan: " + nf(friction,1,3), 300, 50);
+  text("Friction / koefisien gesekan: " + nf(friction,1,3), 300, 50);
   text("a / Akselerasi / Percepatan =" + nf(acceleration,1,3) + "m/s²", 10, 80);
   text("v / Kecepatan gerak benda =" + nf(velocity,1,3)+ "m/s" , 10, 95);
 }
