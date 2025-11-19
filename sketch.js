@@ -1,6 +1,6 @@
-let circleX = 376;
-let circleW = 160;
-let circleH = 120;
+let rectX = 300;
+let rectW = 140;
+let rectH = 140;
 
 let mass = 1000;        // massa batu (kg) - nanti bisa diubah dengan slider
 let force = 0;        // gaya yang diberikan saat menekan tombol
@@ -25,7 +25,7 @@ function draw() {
   // Hitung fisika: a = F / m
   acceleration = force / mass;
   velocity += acceleration;
-  circleX += velocity;
+  rectX += velocity;
   velocity *= friction;
 
     // Jika tombol kanan ditekan, beri gaya terus-menerus
@@ -51,14 +51,14 @@ function draw() {
     rect(255, height - 140, 40, 80);
   }
 
-  // lingkaran sederhana
+  // box sederhana
   fill(100);
-  circle(circleX, height - 140, circleW, circleH);
+  rect(rectX, height - 200, rectW, rectH);
 
   // batas kanan
   // cek batas canvas
-  if (circleX + circleW/2 > width) {
-    circleX = width - circleW/2;
+  if (rectX + rectW > width) {
+    rectX = width - rectW;
     velocity = 0;
 }
 
@@ -67,4 +67,3 @@ function draw() {
   text("Tekan → untuk memberi dorongan (Force / GAYA = 80 N). Massa KG= " + mass, 10, 20);
   text("Akselerasi / Percepatan m/s²= " + nf(acceleration, 1, 3) + " Kecepatan gerak benda m/s = " + nf(velocity, 1, 3), 10, 40);
   }
-
