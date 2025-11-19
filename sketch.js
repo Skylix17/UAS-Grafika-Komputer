@@ -24,7 +24,7 @@ function setup() {
   massSlider = createSlider(5, 10000, 500);    // atur massa 5..200
   massSlider.position(25, 205);
 
-  forceSlider = createSlider(0, 999999, 80);   // atur kekuatan dorong 0..300
+  forceSlider = createSlider(0, 99999, 80);   // atur kekuatan dorong 0..300
   forceSlider.position(25, 235);
 
   frictionSlider = createSlider(0.90, 0.999, 0.90, 0.001);
@@ -99,5 +99,4 @@ function draw() {
   text("Friction / Medan Gesekan: " + nf(friction,1,3), 300, 50);
   text("a / Akselerasi / Percepatan =" + nf(acceleration,1,3) + "m/s²", 10, 80);
   text("v / Kecepatan gerak benda =" + nf(velocity,1,3)+ "m/s" , 10, 95);
-  
 }
