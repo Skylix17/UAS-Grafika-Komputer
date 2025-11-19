@@ -27,7 +27,7 @@ function setup() {
   forceSlider = createSlider(0, 300, 80);   // atur kekuatan dorong 0..300
   forceSlider.position(25, 235);
 
-  frictionSlider = createSlider(0.90, 0.999, 0,90, 0.001);
+  frictionSlider = createSlider(0.90, 0.999, 0.90, 0.001);
   frictionSlider.position(300, 235);
 }
 
