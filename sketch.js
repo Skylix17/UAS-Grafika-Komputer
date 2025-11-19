@@ -1,3 +1,4 @@
+let charX = 256;
 let rectX = 300;
 let rectW = 140;
 let rectH = 140;
@@ -18,7 +19,7 @@ function setup() {
   rectMode(CORNER);
   textSize(14);
 
-  massSlider = createSlider(5, 200, 50);    // atur massa 5..200
+  massSlider = createSlider(5, 1000, 50);    // atur massa 5..200
   massSlider.position(25, 205);
 
   forceSlider = createSlider(0, 300, 80);   // atur kekuatan dorong 0..300
@@ -57,14 +58,14 @@ function draw() {
     if (pushing) {
     // pose mendorong: condong ke depan
     push();
-    translate(255, height - 140);
+    translate(charX, height - 140);
     rotate(-0.05);
     fill(128,0,128);
     rect(0, 0, 40, 80);
     pop();
   } else {
     fill(0, 120, 200);
-    rect(255, height - 140, 40, 80);
+    rect(charX, height - 140, 40, 80);
   }
 
   // box sederhana
@@ -80,9 +81,9 @@ function draw() {
 
   // Info
   fill(0);
-  text("m / Massa batu: " + mass + " kg (slider)", 10, 20);
-  text("F/ Kekuatan dorong/Gaya/Force(max): " + maxForce, 10, 50);
+  text("m / Massa batu: " + mass + "kg", 10, 20);
+  text("F/ Kekuatan dorong/Gaya/Force(max): " + maxForce + "N", 10, 50);
   text("Friction/ Medan Gesekan: " + nf(friction,1,3), 300, 50);
-  text("a / Akselerasi / Percepatan m/s²=" + nf(acceleration,1,3), 10, 80);
-  text("v / Kecepatan gerak benda m/s =" + nf(velocity,1,3), 10, 95);
+  text("a / Akselerasi / Percepatan =" + nf(acceleration,1,3) + "m/s²", 10, 80);
+  text("v / Kecepatan gerak benda =" + nf(velocity,1,3)+ "m/s" , 10, 95);
 }
