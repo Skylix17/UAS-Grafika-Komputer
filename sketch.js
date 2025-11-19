@@ -8,12 +8,24 @@ let velocity = 0;
 let acceleration = 0;
 let friction = 0.90;  // sederhana agar perlahan berhenti
 
+let massSlider, forceSlider, frictionSlider;
+let maxForce = 80;
+
 let pushing = false;
 
 function setup() {
   createCanvas(1500, 360);
   rectMode(CORNER);
   textSize(14);
+
+  massSlider = createSlider(5, 200, 50);    // atur massa 5..200
+  massSlider.position(25, 205);
+
+  forceSlider = createSlider(0, 300, 80);   // atur kekuatan dorong 0..300
+  forceSlider.position(25, 235);
+
+  frictionSlider = createSlider(0.90, 0.999, 0.98, 0.001);
+  frictionSlider.position(300, 235);
 }
 
 function draw() {
@@ -21,6 +33,10 @@ function draw() {
   // Lantai
   fill(80, 50, 30);
   rect(0, height - 60, width, 60);
+
+  mass = massSlider.value();
+  maxForce = forceSlider.value();
+  friction = frictionSlider.value();
 
   // Hitung fisika: a = F / m
   acceleration = force / mass;
@@ -30,7 +46,7 @@ function draw() {
 
     // Jika tombol kanan ditekan, beri gaya terus-menerus
   if (keyIsDown(RIGHT_ARROW)) {
-    force = 80; // gaya kontinyu
+    force = maxForce
     pushing = true;
   } else {
     force = 0;   // Reset gaya setiap frame (kita anggap gaya diterapkan saat tombol ditekan)
@@ -64,6 +80,9 @@ function draw() {
 
   // Info
   fill(0);
-  text("Tekan → untuk memberi dorongan (Force / GAYA = 80 N). Massa KG= " + mass, 10, 20);
-  text("Akselerasi / Percepatan m/s²= " + nf(acceleration, 1, 3) + " Kecepatan gerak benda m/s = " + nf(velocity, 1, 3), 10, 40);
-  }
+  text("m / Massa batu: " + mass + " kg (slider)", 10, 20);
+  text("F/ Kekuatan dorong/Gaya/Force(max): " + maxForce, 10, 50);
+  text("Friction/ Medan Gesekan: " + nf(friction,1,3), 300, 50);
+  text("a / Akselerasi / Percepatan m/s²=" + nf(acceleration,1,3), 10, 80);
+  text("v / Kecepatan gerak benda m/s =" + nf(velocity,1,3), 10, 95);
+}
