@@ -1,3 +1,4 @@
+//fina
 let charX = 250;
 let charY = 360;
 let rectX = 300;
@@ -17,6 +18,7 @@ let maxForce;
 let pushing = false;
 let karakterImg;
 
+//jein
 function preload() {
   karakterImg = loadImage("Push.png");
 }
@@ -33,6 +35,7 @@ function setup() {
   forceSlider.position(25, 235);
 }
 
+//ahmadil
 function draw() {
   background(200, 230, 255);
   // Lantai
@@ -51,6 +54,8 @@ function draw() {
     pushing = false;
     force = 0;  // Reset gaya setiap frame (kita anggap gaya diterapkan saat tombol ditekan)
   }
+
+// rivaldi
 
   //Menentukan Sisi Kanan Karakter
   let charRight = charX + 60;
