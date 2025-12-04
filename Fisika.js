@@ -26,6 +26,7 @@ function setup() {
 
   forceSlider = createSlider(0, 500, 80);   // atur kekuatan dorong 0..500
   forceSlider.position(25, 235);
+
 }
 
 function draw() {
