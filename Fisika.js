@@ -97,5 +97,5 @@ function draw() {
   text("m / Massa batu: " + mass + "kg", 10, 20);
   text("F/ Kekuatan dorong / Gaya / Force: " + maxForce + "N", 10, 50);
   text("a / Akselerasi / Percepatan =" + nf(acceleration,1,3) + "m/s²", 10, 80);
-  text("v / Kecepatan gerak benda =" + nf(velocity,1,3)+ "m/s" , 10, 95);
+ 
 }
