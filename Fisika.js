@@ -1,5 +1,5 @@
 let charX = 250;
-let charY = 375;
+let charY = 325;
 let rectX = 300;
 let rectW = 140;
 let rectH = 140;
@@ -53,7 +53,7 @@ function draw() {
   }
 
   //Menentukan Sisi Kanan Karakter
-  let charRight = charX + 40;
+  let charRight = charX + 80;
   //Menentukan Sisi Kiri Kotak
   let boxLeft = rectX;
 
@@ -62,7 +62,7 @@ function draw() {
 
   // Hitung fisika: a = F / m
   if (touching) {
-    charX = rectX - 40;
+    charX = rectX - 75;
     acceleration = force / mass;
     velocity += acceleration;
     rectX += velocity;
@@ -81,11 +81,11 @@ function draw() {
   // Karakter sederhana
     if (pushing) {
     push();
-    translate(charX, charY - 140);
-    image(karakterImg, 0, 0, 40, 80);
+    translate(charX, charY - 160);
+    image(karakterImg, 0, 0, 80, 160);
     pop();
   } else {
-    image(karakterImg, charX, charY - 140, 40, 80);
+    image(karakterImg, charX, charY - 160, 80, 160);
   }
 
   // box sederhana
