@@ -1,4 +1,5 @@
 let charX = 250;
+let charY = 375;
 let rectX = 300;
 let rectW = 140;
 let rectH = 140;
@@ -14,7 +15,11 @@ let forceSlider; // gaya yang diberikan saat menekan tombol
 let maxForce;
 
 let pushing = false;
+let karakterImg;
 
+function preload() {
+  karakterImg = loadImage("Push.png");
+}
 
 function setup() {
   createCanvas(1500, 360);
@@ -26,7 +31,6 @@ function setup() {
 
   forceSlider = createSlider(0, 500, 80);   // atur kekuatan dorong 0..500
   forceSlider.position(25, 235);
-
 }
 
 function draw() {
@@ -48,9 +52,12 @@ function draw() {
     force = 0;  // Reset gaya setiap frame (kita anggap gaya diterapkan saat tombol ditekan)
   }
 
+  //Menentukan Sisi Kanan Karakter
   let charRight = charX + 40;
+  //Menentukan Sisi Kiri Kotak
   let boxLeft = rectX;
 
+  //Mengecek Apakah Sudah Bersentuhan
   let touching = charRight >= boxLeft;
 
   // Hitung fisika: a = F / m
@@ -73,16 +80,12 @@ function draw() {
   }
   // Karakter sederhana
     if (pushing) {
-    // pose mendorong: condong ke depan
     push();
-    translate(charX, height - 140);
-    rotate(-0.05);
-    fill(128,0,128);
-    rect(0, 0, 40, 80);
+    translate(charX, charY - 140);
+    image(karakterImg, 0, 0, 40, 80);
     pop();
   } else {
-    fill(0, 120, 200);
-    rect(charX, height - 140, 40, 80);
+    image(karakterImg, charX, charY - 140, 40, 80);
   }
 
   // box sederhana
